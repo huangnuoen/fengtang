@@ -1,3 +1,3 @@
 //main.js
-const greeter = require('./Greeter.js');
-document.querySelector("#success").appendChild(greeter());
+const successAni = require('./guideAni.js');
+require("!style-loader!css-loader!./main.css")
