@@ -5,6 +5,19 @@ const TweenMax = require("../lib/TweenMax.min.js");
 
 
 //const guide = $('#guide');
+// page1 Ani
+const logo = $('#guide .page1 .logo')[0];
+const text1 = $('#guide .page1 .text')[0];
+TweenLite.from(logo, 2, {
+    opacity: 0,
+    ease: Power4.easeInOut
+});
+TweenLite.from(text1, 2, {
+    opacity: 0,
+    ease: Power4.easeInOut,
+    delay: 1
+});
+
 var touch = {
     current: 1
 };
