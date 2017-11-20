@@ -53,24 +53,61 @@ TweenLite.from($('.mini1')[0], 0.8, {
     transformOrigin: 'center',
     delay: 1.5
 })
-TweenLite.from($('.mini2')[0], 1, {
+TweenLite.from($('.mini2')[0], 0.8, {
     ease: Elastic.easeOut.config(1.2, 0.4),
     scale: 0,
     transformOrigin: 'center',
     opacity: 0,
-    delay: 1.8
+    delay: 1.7
 })
-TweenLite.from($('.mini3')[0], 1, {
+TweenLite.from($('.mini3')[0], 0.8, {
+    ease: Elastic.easeOut.config(1.2, 0.4),
+    opacity: 0,
+    scale: 0,
+    transformOrigin: 'center',
+    delay: 1.9
+})
+TweenLite.from($('.mini4')[0], 0.8, {
     ease: Elastic.easeOut.config(1.2, 0.4),
     opacity: 0,
     scale: 0,
     transformOrigin: 'center',
     delay: 2.1
 })
+TweenLite.from($('.mini5')[0], 0.8, {
+    ease: Elastic.easeOut.config(1.2, 0.4),
+    opacity: 0,
+    scale: 0,
+    transformOrigin: 'center',
+    delay: 2.3
+});
+TweenLite.from($('.mini6')[0], 0.8, {
+    ease: Elastic.easeOut.config(1.2, 0.4),
+    opacity: 0,
+    scale: 0,
+    transformOrigin: 'center',
+    delay: 2.5
+})
+
 
 var touch = {
     current: 1
 };
+$('#down').on('touchstart', down).on('touchend', up);
+function down() {
+    TweenLite.to(this, 0.2, {
+        scale: 0.8,
+        transformOrigin: 'center'
+    })
+}
+function up() {
+    TweenLite.to(this, 0.5, {
+        ease: Elastic.easeOut.config(1.2, 0.4),
+        scale: 1,
+        transformOrigin: 'center'
+    })
+}
+
 // guide.on('touchstart', start)
 // guide.on('touchmove', move)
 // guide.on('touchend', end)
