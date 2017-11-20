@@ -21,6 +21,7 @@ body {
     height: 100%;
 }
 svg {
+    //transform: scale(0.6);
     margin: 0 auto;
     text-align: center;
     overflow: auto;
