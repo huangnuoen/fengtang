@@ -16,77 +16,80 @@ TweenLite.from(text1, 2, {
     delay: 1
 });
 // page2 Ani
-const circle1 = $('.circle1')[0];
-const pageAin2 = TweenLite.from(circle1, 0.8, {
-    ease: Elastic.easeOut.config(1.2, 0.4),
-    opacity: 0,
-    scale: 0.2,
-    transformOrigin: 'center center'
-});
-const circle2 = $('.circle2')[0];
-TweenLite.from(circle2, 0.8, {
-    ease: Elastic.easeOut.config(1.2, 0.4),
-    opacity: 0,
-    scale: 0,
-    transformOrigin: 'center center'
-});
-const circle3 = $('.circle3')[0];
-TweenLite.from(circle3, 0.5, {
-    ease: Elastic.easeOut.config(1.2, 0.4),
-    scale: 0.1,
-    transformOrigin: 'center center',
-    delay: 0.2
-});
-const logo2 = $('.page2 .logo')[0];
-TweenLite.from(logo2, 1, {
-    ease: Power4.easeInOut,
-    opacity: 0,
-    delay: 0.5
-})
+page2Ani();
+function page2Ani() {
+    const circle1 = $('.circle1')[0];
+    TweenLite.from(circle1, 0.8, {
+        ease: Elastic.easeOut.config(1.2, 0.4),
+        opacity: 0,
+        scale: 0.2,
+        transformOrigin: 'center center'
+    });
+    const circle2 = $('.circle2')[0];
+    TweenLite.from(circle2, 0.8, {
+        ease: Elastic.easeOut.config(1.2, 0.4),
+        opacity: 0,
+        scale: 0,
+        transformOrigin: 'center center'
+    });
+    const circle3 = $('.circle3')[0];
+    TweenLite.from(circle3, 0.5, {
+        ease: Elastic.easeOut.config(1.2, 0.4),
+        scale: 0.1,
+        transformOrigin: 'center center',
+        delay: 0.2
+    });
+    const logo2 = $('.page2 .logo')[0];
+    TweenLite.from(logo2, 1, {
+        ease: Power4.easeInOut,
+        opacity: 0,
+        delay: 0.5
+    })
 
-TweenLite.from($('.mini1')[0], 0.8, {
-    ease: Elastic.easeOut.config(1.2, 0.4),
-    opacity: 0,
-    scale: 0,
-    transformOrigin: 'center',
-    delay: 1.5
-})
-TweenLite.from($('.mini2')[0], 0.8, {
-    ease: Elastic.easeOut.config(1.2, 0.4),
-    scale: 0,
-    transformOrigin: 'center',
-    opacity: 0,
-    delay: 1.7
-})
-TweenLite.from($('.mini3')[0], 0.8, {
-    ease: Elastic.easeOut.config(1.2, 0.4),
-    opacity: 0,
-    scale: 0,
-    transformOrigin: 'center',
-    delay: 1.9
-})
-TweenLite.from($('.mini4')[0], 0.8, {
-    ease: Elastic.easeOut.config(1.2, 0.4),
-    opacity: 0,
-    scale: 0,
-    transformOrigin: 'center',
-    delay: 2.1
-})
-TweenLite.from($('.mini5')[0], 0.8, {
-    ease: Elastic.easeOut.config(1.2, 0.4),
-    opacity: 0,
-    scale: 0,
-    transformOrigin: 'center',
-    delay: 2.3
-});
-TweenLite.from($('.mini6')[0], 0.8, {
-    ease: Elastic.easeOut.config(1.2, 0.4),
-    opacity: 0,
-    scale: 0,
-    transformOrigin: 'center',
-    delay: 2.5
-})
+    TweenLite.from($('.mini1')[0], 0.8, {
+        ease: Elastic.easeOut.config(1.2, 0.4),
+        opacity: 0,
+        scale: 0,
+        transformOrigin: 'center',
+        delay: 1.5
+    })
+    TweenLite.from($('.mini2')[0], 0.8, {
+        ease: Elastic.easeOut.config(1.2, 0.4),
+        scale: 0,
+        transformOrigin: 'center',
+        opacity: 0,
+        delay: 1.7
+    })
+    TweenLite.from($('.mini3')[0], 0.8, {
+        ease: Elastic.easeOut.config(1.2, 0.4),
+        opacity: 0,
+        scale: 0,
+        transformOrigin: 'center',
+        delay: 1.9
+    })
+    TweenLite.from($('.mini4')[0], 0.8, {
+        ease: Elastic.easeOut.config(1.2, 0.4),
+        opacity: 0,
+        scale: 0,
+        transformOrigin: 'center',
+        delay: 2.1
+    })
+    TweenLite.from($('.mini5')[0], 0.8, {
+        ease: Elastic.easeOut.config(1.2, 0.4),
+        opacity: 0,
+        scale: 0,
+        transformOrigin: 'center',
+        delay: 2.3
+    });
+    TweenLite.from($('.mini6')[0], 0.8, {
+        ease: Elastic.easeOut.config(1.2, 0.4),
+        opacity: 0,
+        scale: 0,
+        transformOrigin: 'center',
+        delay: 2.5
+    })
 
+}
 var touch = {
     current: 0,
     percent: 1
@@ -173,14 +176,14 @@ function end() {
         return
     }
     if(touch.current === 0) {
-        if (touch.percent > 0.1) {
+        if (touch.percent > 0.05) {
             offsetWidth = -window.innerWidth;
             touch.current = 1;
         } else {
             offsetWidth = 0;
         }
     } else {
-        if (touch.percent < 0.9) {
+        if (touch.percent < 0.95) {
             offsetWidth = 0;
             touch.current = 0;
         } else {
