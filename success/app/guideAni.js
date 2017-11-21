@@ -19,7 +19,7 @@ TweenLite.from(text1, 2, {
 
 // page2 Ani
 const circle1 = $('.circle1')[0];
-TweenLite.from(circle1, 0.7, {
+TweenLite.from(circle1, 7, {
     ease: Elastic.easeOut.config(1.2, 0.4),
     opacity: 0,
     scale: 0.3,
@@ -96,7 +96,7 @@ var touch = {
 $('#down').on('touchstart', down).on('touchend', up);
 function down() {
     TweenLite.to(this, 0.2, {
-        scale: 0.8,
+        scale: 0.7,
         transformOrigin: 'center'
     });
     TweenLite.to($('.mini1')[0], 0.2, {
@@ -105,23 +105,23 @@ function down() {
     });
     TweenLite.to($('.mini2')[0], 0.2, {
         x: 50,
-        y: -15
+        y: 15
     });
     TweenLite.to($('.mini3')[0], 0.2, {
         x: 5,
-        y: 40
+        y: 50
     });
     TweenLite.to($('.mini4')[0], 0.2, {
         x: -5,
-        y: 30
+        y: 40
     });
     TweenLite.to($('.mini5')[0], 0.2, {
-        x: -25,
-        y: 5
+        x: -35,
+        y: 10
     });
     TweenLite.to($('.mini6')[0], 0.2, {
         x: -25,
-        y: -10
+        y: -15
     });
 }
 function up() {

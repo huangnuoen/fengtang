@@ -21,32 +21,44 @@ body {
     height: 100%;
 }
 svg {
-    transform: scale(0.7);
+    transform: scale(0.8);
     margin: 0 auto;
     text-align: center;
     overflow: auto;
 }
+.page1 svg {
+    transform: scale(0.6);
+}
 .text {
-    /*font-size: 3em;*/
-    margin: 17% 0 30%;
+    font-size: 3em;
+    width: 70%;
+    margin: 10% auto 11%;
+    white-space: normal;
+}
+.page1 .text {
+    position: absolute;
+    bottom: 20%;
+    left: 20%;
 }
 .text span {
     display: block;
 }
 .btn div {
-    width: 40%;
+    width: 82%;
     display: inline-block;
     margin: 0 4%;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    font-size: 2.6em;
+    font-size: 2.4em;
     padding: 2.3% 0;
     color: #B4B4B5;
     background-color: transparent;
     border: 1px solid #95989A;
-    border-radius: 5px;
+    border-radius: 6px;
     outline: none;
 }
-div.again {
-    color: #F26F21;
+div.start {
+    color: #fff;
+    background-color: #F26F21;
+
 }
