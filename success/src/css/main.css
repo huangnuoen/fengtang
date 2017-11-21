@@ -28,6 +28,9 @@ svg {
     font-size: 3.4em;
     margin: 17% 0 30%;
 }
+.page2 .text {
+    margin: 10% auto 22%;
+}
 .text span {
     display: block;
 }
