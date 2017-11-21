@@ -15,7 +15,6 @@ TweenLite.from(text1, 2, {
     ease: Power4.easeInOut,
     delay: 1
 });
-
 // page2 Ani
 const circle1 = $('.circle1')[0];
 const pageAin2 = TweenLite.from(circle1, 0.8, {
@@ -87,7 +86,6 @@ TweenLite.from($('.mini6')[0], 0.8, {
     transformOrigin: 'center',
     delay: 2.5
 })
-
 
 var touch = {
     current: 0,
@@ -168,7 +166,6 @@ function move() {
     TweenLite.to(this, 0.1, {
         x: offsetWidth
     });
-    console.log(touch);
 }
 function end() {
     var offsetWidth
@@ -176,25 +173,23 @@ function end() {
         return
     }
     if(touch.current === 0) {
-        if (touch.percent > 0.2) {
+        if (touch.percent > 0.1) {
             offsetWidth = -window.innerWidth;
             touch.current = 1;
         } else {
             offsetWidth = 0;
         }
-        touch.current = 1;
     } else {
-        if (touch.percent < 0.8) {
+        if (touch.percent < 0.9) {
             offsetWidth = 0;
             touch.current = 0;
         } else {
             offsetWidth = -window.innerWidth;
         }
     }
-    TweenLite.to(this, 0.5, {
+    TweenLite.to(this, 0.3, {
         x: offsetWidth
     });
-    console.log(touch.offsetWidth);
     touch.initiated = false;
     touch.move = false;
     // TweenLite.to(this, 0.8, {
