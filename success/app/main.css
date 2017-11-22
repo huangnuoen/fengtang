@@ -21,20 +21,24 @@ body {
     height: 100%;
 }
 svg {
-    transform: scale(0.8);
+    transform: scale(0.9);
     margin: 0 auto;
     text-align: center;
     overflow: auto;
 }
 .page1 svg {
-    transform: scale(0.6);
+    transform: scale(0.5);
     opacity: 0;
 }
 .text {
     font-size: 3em;
     width: 70%;
-    margin: -46% auto 11%;
+    /*margin: 10% auto 11%;*/
     white-space: normal;
+}
+.page1 .text {
+    transform: translateY(-200%);
+    margin: -21% auto 11%;
 }
 .page2 .text {
     margin: 10% auto 11%;

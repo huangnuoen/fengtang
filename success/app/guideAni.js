@@ -1,37 +1,37 @@
 // page1 Ani
 var logo = $('#guide .page1 .logo')[0];
 var text1 = $('#guide .page1 .text')[0];
-TweenLite.to(logo, 2, {
+TweenLite.to(logo, 0.75, {
     opacity: 1,
     ease: Power4.easeInOut
 });
-TweenLite.from(text1, 2, {
+TweenLite.from(text1, 0.75, {
     opacity: 0,
     ease: Power4.easeInOut,
-    delay: 1
+    delay: 0.5
 });
 // page2 Ani
 function page2Ani() {
-    var time = 0.3;
+    var time = 0.1;
     var circle1 = $('.circle1')[0];
-    TweenLite.from(circle1, 0.8, {
-        ease: Elastic.easeOut.config(1.2, 0.4),
+    TweenLite.from(circle1, 1.5, {
+        ease: Elastic.easeOut.config(1, 0.5),
         opacity: 0,
-        scale: 0.2,
+        scale: 0.3,
         delay: time,
         transformOrigin: 'center center'
     });
     var circle2 = $('.circle2')[0];
-    TweenLite.from(circle2, 0.8, {
-        ease: Elastic.easeOut.config(1.2, 0.4),
+    TweenLite.from(circle2, 1, {
+        ease: Elastic.easeOut.config(1, 0.5),
         opacity: 0,
         scale: 0,
-        delay: time,
+        delay: time + 0.1,
         transformOrigin: 'center center'
     });
     var circle3 = $('.circle3')[0];
-    TweenLite.from(circle3, 0.5, {
-        ease: Elastic.easeOut.config(1.2, 0.4),
+    TweenLite.from(circle3, 0.8, {
+        ease: Elastic.easeOut.config(1, 0.5),
         opacity: 0,
         scale: 0.1,
         transformOrigin: 'center center',
@@ -56,35 +56,35 @@ function page2Ani() {
         scale: 0,
         transformOrigin: 'center',
         opacity: 0,
-        delay: 1.4 + time
+        delay: 1.45 + time
     })
     TweenLite.from($('.mini3')[0], 0.5, {
         ease: Elastic.easeOut.config(1.2, 0.4),
         opacity: 0,
         scale: 0,
         transformOrigin: 'center',
-        delay: 1.5 + time
+        delay: 1.6 + time
     })
     TweenLite.from($('.mini4')[0], 0.5, {
         ease: Elastic.easeOut.config(1.2, 0.4),
         opacity: 0,
         scale: 0,
         transformOrigin: 'center',
-        delay: 1.6 + time
+        delay: 1.75 + time
     })
     TweenLite.from($('.mini5')[0], 0.5, {
         ease: Elastic.easeOut.config(1.2, 0.4),
         opacity: 0,
         scale: 0,
         transformOrigin: 'center',
-        delay: 1.7 + time
+        delay: 1.9 + time
     });
     TweenLite.from($('.mini6')[0], 0.5, {
         ease: Elastic.easeOut.config(1.2, 0.4),
         opacity: 0,
         scale: 0,
         transformOrigin: 'center',
-        delay: 1.8 + time
+        delay: 2.05 + time
     });
     TweenLite.from($('.page2 .text')[0], 0.5, {
         ease: Power4.easeInOut,
@@ -114,22 +114,22 @@ function down() {
     });
     TweenLite.to($('.mini2')[0], 0.2, {
         x: 50,
-        y: 15
+        y: 20
     });
     TweenLite.to($('.mini3')[0], 0.2, {
         x: 5,
-        y: 50
+        y: 65
     });
     TweenLite.to($('.mini4')[0], 0.2, {
         x: -5,
-        y: 40
+        y: 55
     });
     TweenLite.to($('.mini5')[0], 0.2, {
-        x: -35,
+        x: -45,
         y: 10
     });
     TweenLite.to($('.mini6')[0], 0.2, {
-        x: -25,
+        x: -35,
         y: -15
     });
 }
@@ -151,7 +151,6 @@ function up() {
 
 $('#guide').on('touchstart', start).on('touchmove', move).on('touchend', end)
 function start() {
-    console.log('23');
     event.preventDefault();
     touch.initiated = true;
     var t = event.touches[0];
@@ -177,7 +176,8 @@ function move() {
     TweenLite.to(this, 0.1, {
         x: offsetWidth
     });
-    if (!touch.ani) {
+    console.log(deltaY);
+    if (!touch.ani && deltaX < 0 && touch.percent > 0.05) {
         touch.ani = true;
         page2Ani();
     }
@@ -191,7 +191,7 @@ function end() {
         if (touch.percent > 0.05) {
             offsetWidth = -window.innerWidth;
             touch.current = 1;
-        } else {
+          } else {
             offsetWidth = 0;
         }
     } else {
