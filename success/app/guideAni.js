@@ -14,7 +14,7 @@ TweenLite.from(text1, 0.75, {
 function page2Ani() {
     var time = 0.1;
     var circle1 = $('.circle1')[0];
-    TweenLite.from(circle1, 1.5, {
+    TweenLite.from(circle1, 1, {
         ease: Elastic.easeOut.config(1, 0.5),
         opacity: 0,
         scale: 0.3,
@@ -102,39 +102,48 @@ var touch = {
     percent: 1,
     ani: false
 };
-$('#down').on('touchstart', down).on('touchend', up);
-function down() {
-    TweenLite.to(this, 0.2, {
-        scale: 0.7,
+var timer;
+$('#down').on('touchstart', function () {
+    timer = setTimeout(function () {
+        down(1);
+    }, 30)
+}).on('touchend', function () {
+    clearTimeout(timer);
+    up();
+});
+function down(p) {
+    console.log(p);
+    TweenLite.to($('#down'), 0.32, {
+        scale: 0.7 * p,
         transformOrigin: 'center'
     });
-    TweenLite.to($('.mini1')[0], 0.2, {
-        x: 50,
-        y: -20
+    TweenLite.to($('.mini1')[0], 0.32, {
+        x: 50/p,
+        y: -20/p
     });
-    TweenLite.to($('.mini2')[0], 0.2, {
-        x: 50,
-        y: 20
+    TweenLite.to($('.mini2')[0], 0.32, {
+        x: 50/p,
+        y: 20/p
     });
-    TweenLite.to($('.mini3')[0], 0.2, {
-        x: 5,
-        y: 65
+    TweenLite.to($('.mini3')[0], 0.32, {
+        x: 5/p,
+        y: 65/p
     });
-    TweenLite.to($('.mini4')[0], 0.2, {
-        x: -5,
-        y: 55
+    TweenLite.to($('.mini4')[0], 0.32, {
+        x: -5/p,
+        y: 55/p
     });
-    TweenLite.to($('.mini5')[0], 0.2, {
-        x: -45,
-        y: 10
+    TweenLite.to($('.mini5')[0], 0.32, {
+        x: -45/p,
+        y: 10/p
     });
-    TweenLite.to($('.mini6')[0], 0.2, {
-        x: -35,
-        y: -15
+    TweenLite.to($('.mini6')[0], 0.32, {
+        x: -35/p,
+        y: -15/p
     });
 }
 function up() {
-    TweenLite.to(this, 0.5, {
+    TweenLite.to($('#down'), 0.5, {
         ease: Elastic.easeOut.config(1.2, 0.4),
         scale: 1,
         transformOrigin: 'center'
