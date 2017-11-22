@@ -1,13 +1,8 @@
-const $ = require("../lib/jquery-3.2.1.min.js");
-const fastclick = require("../lib/fastclick.js");
-const TweenMax = require("../lib/TweenMax.min.js");
-
-
 // page1 Ani
-const logo = $('#guide .page1 .logo')[0];
-const text1 = $('#guide .page1 .text')[0];
-TweenLite.from(logo, 2, {
-    opacity: 0,
+var logo = $('#guide .page1 .logo')[0];
+var text1 = $('#guide .page1 .text')[0];
+TweenLite.to(logo, 2, {
+    opacity: 1,
     ease: Power4.easeInOut
 });
 TweenLite.from(text1, 2, {
@@ -16,83 +11,96 @@ TweenLite.from(text1, 2, {
     delay: 1
 });
 // page2 Ani
-page2Ani();
 function page2Ani() {
-    const circle1 = $('.circle1')[0];
+    var time = 0.3;
+    var circle1 = $('.circle1')[0];
     TweenLite.from(circle1, 0.8, {
         ease: Elastic.easeOut.config(1.2, 0.4),
         opacity: 0,
         scale: 0.2,
+        delay: time,
         transformOrigin: 'center center'
     });
-    const circle2 = $('.circle2')[0];
+    var circle2 = $('.circle2')[0];
     TweenLite.from(circle2, 0.8, {
         ease: Elastic.easeOut.config(1.2, 0.4),
         opacity: 0,
         scale: 0,
+        delay: time,
         transformOrigin: 'center center'
     });
-    const circle3 = $('.circle3')[0];
+    var circle3 = $('.circle3')[0];
     TweenLite.from(circle3, 0.5, {
         ease: Elastic.easeOut.config(1.2, 0.4),
+        opacity: 0,
         scale: 0.1,
         transformOrigin: 'center center',
-        delay: 0.2
+        delay: 0.2 + time
     });
-    const logo2 = $('.page2 .logo')[0];
+    var logo2 = $('.page2 .logo')[0];
     TweenLite.from(logo2, 1, {
         ease: Power4.easeInOut,
         opacity: 0,
-        delay: 0.5
+        delay: 0.5 + time
     })
 
-    TweenLite.from($('.mini1')[0], 0.8, {
+    TweenLite.from($('.mini1')[0], 0.5, {
         ease: Elastic.easeOut.config(1.2, 0.4),
         opacity: 0,
         scale: 0,
         transformOrigin: 'center',
-        delay: 1.5
+        delay: 1.3 + time
     })
-    TweenLite.from($('.mini2')[0], 0.8, {
+    TweenLite.from($('.mini2')[0], 0.5, {
         ease: Elastic.easeOut.config(1.2, 0.4),
         scale: 0,
         transformOrigin: 'center',
         opacity: 0,
-        delay: 1.7
+        delay: 1.4 + time
     })
-    TweenLite.from($('.mini3')[0], 0.8, {
+    TweenLite.from($('.mini3')[0], 0.5, {
         ease: Elastic.easeOut.config(1.2, 0.4),
         opacity: 0,
         scale: 0,
         transformOrigin: 'center',
-        delay: 1.9
+        delay: 1.5 + time
     })
-    TweenLite.from($('.mini4')[0], 0.8, {
+    TweenLite.from($('.mini4')[0], 0.5, {
         ease: Elastic.easeOut.config(1.2, 0.4),
         opacity: 0,
         scale: 0,
         transformOrigin: 'center',
-        delay: 2.1
+        delay: 1.6 + time
     })
-    TweenLite.from($('.mini5')[0], 0.8, {
+    TweenLite.from($('.mini5')[0], 0.5, {
         ease: Elastic.easeOut.config(1.2, 0.4),
         opacity: 0,
         scale: 0,
         transformOrigin: 'center',
-        delay: 2.3
+        delay: 1.7 + time
     });
-    TweenLite.from($('.mini6')[0], 0.8, {
+    TweenLite.from($('.mini6')[0], 0.5, {
         ease: Elastic.easeOut.config(1.2, 0.4),
         opacity: 0,
         scale: 0,
         transformOrigin: 'center',
-        delay: 2.5
-    })
-
+        delay: 1.8 + time
+    });
+    TweenLite.from($('.page2 .text')[0], 0.5, {
+        ease: Power4.easeInOut,
+        opacity: 0,
+        delay: 2 + time
+    });
+    TweenLite.from($('.page2 .start')[0], 0.5, {
+        ease: Power4.easeInOut,
+        opacity: 0,
+        delay: 2.2 + time
+    });
 }
 var touch = {
     current: 0,
-    percent: 1
+    percent: 1,
+    ani: false
 };
 $('#down').on('touchstart', down).on('touchend', up);
 function down() {
@@ -131,7 +139,7 @@ function up() {
         scale: 1,
         transformOrigin: 'center'
     });
-    const mini = $('.mini')
+    var mini = $('.mini')
     for(var i = 0; i < mini.length; i++) {
         TweenLite.to(mini[i], 0.5, {
             ease: Elastic.easeOut.config(1.2, 0.4),
@@ -146,7 +154,7 @@ function start() {
     console.log('23');
     event.preventDefault();
     touch.initiated = true;
-    const t = event.touches[0];
+    var t = event.touches[0];
     touch.startX = t.pageX;
     touch.startY = t.pageY;
 }
@@ -155,20 +163,24 @@ function move() {
         return;
     }
     touch.move = true;
-    const t = event.touches[0];
-    const deltaY = t.pageY - touch.startY;
-    const deltaX = t.pageX - touch.startX;
+    var t = event.touches[0];
+    var deltaY = t.pageY - touch.startY;
+    var deltaX = t.pageX - touch.startX;
     if (Math.abs(deltaY) > Math.abs(deltaX)) {
         return;
     }
     // 左移距离
-    const left = touch.current === 0 ? 0 : -window.innerWidth;
-    const offsetWidth = Math.min(0, Math.max(-window.innerWidth, left + deltaX));
+    var left = touch.current === 0 ? 0 : -window.innerWidth;
+    var offsetWidth = Math.min(0, Math.max(-window.innerWidth, left + deltaX));
     // percent
     touch.percent = Math.abs(offsetWidth / window.innerWidth)
     TweenLite.to(this, 0.1, {
         x: offsetWidth
     });
+    if (!touch.ani) {
+        touch.ani = true;
+        page2Ani();
+    }
 }
 function end() {
     var offsetWidth
@@ -195,27 +207,4 @@ function end() {
     });
     touch.initiated = false;
     touch.move = false;
-    // TweenLite.to(this, 0.8, {
-    //     ease: Elastic.easeOut.config(1, 0.3),
-    //     scale: 1,
-    //     y: 0
-    // })
-    // TweenLite.to(dot, 0.8, {
-    //     ease: Elastic.easeOut.config(1, 0.3),
-    //     y: 0
-    // })
-    // TweenLite.to(counter, 0.8, {
-    //     ease: Elastic.easeOut.config(1, 0.3),
-    //     rotation: 0
-    // })
-    // TweenLite.to(clock, 0.8, {
-    //     ease: Elastic.easeOut.config(1, 0.3),
-    //     rotation: 0
-    // })
-    // TweenLite.to(circleBg, 0.8, {
-    //     ease: Elastic.easeOut.config(1, 0.3),
-    //     scale: 1
-    // })
-    // touch.initiated = false;
-    //
 }

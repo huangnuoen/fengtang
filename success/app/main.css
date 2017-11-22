@@ -28,17 +28,16 @@ svg {
 }
 .page1 svg {
     transform: scale(0.6);
+    opacity: 0;
 }
 .text {
     font-size: 3em;
     width: 70%;
-    margin: 10% auto 11%;
+    margin: -46% auto 11%;
     white-space: normal;
 }
-.page1 .text {
-    position: absolute;
-    bottom: 20%;
-    left: 15%;
+.page2 .text {
+    margin: 10% auto 11%;
 }
 .text span {
     display: block;
