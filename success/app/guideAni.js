@@ -104,40 +104,42 @@ var touch = {
 };
 var timer;
 $('#down').on('touchstart', function () {
+    event.stopPropagation();
     timer = setTimeout(function () {
         down(1);
-    }, 30)
+    }, 20);
+    down(1);
 }).on('touchend', function () {
     clearTimeout(timer);
     up();
 });
 function down(p) {
     console.log(p);
-    TweenLite.to($('#down'), 0.32, {
+    TweenLite.to($('#down'), 0.3, {
         scale: 0.7 * p,
         transformOrigin: 'center'
     });
-    TweenLite.to($('.mini1')[0], 0.32, {
+    TweenLite.to($('.mini1')[0], 0.3, {
         x: 50/p,
         y: -20/p
     });
-    TweenLite.to($('.mini2')[0], 0.32, {
+    TweenLite.to($('.mini2')[0], 0.3, {
         x: 50/p,
         y: 20/p
     });
-    TweenLite.to($('.mini3')[0], 0.32, {
+    TweenLite.to($('.mini3')[0], 0.3, {
         x: 5/p,
         y: 65/p
     });
-    TweenLite.to($('.mini4')[0], 0.32, {
+    TweenLite.to($('.mini4')[0], 0.3, {
         x: -5/p,
         y: 55/p
     });
-    TweenLite.to($('.mini5')[0], 0.32, {
+    TweenLite.to($('.mini5')[0], 0.3, {
         x: -45/p,
         y: 10/p
     });
-    TweenLite.to($('.mini6')[0], 0.32, {
+    TweenLite.to($('.mini6')[0], 0.3, {
         x: -35/p,
         y: -15/p
     });
