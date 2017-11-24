@@ -46,8 +46,17 @@ line.right2 {
 }
 .bling {
     transform-origin: center;
-    animation: bling 1s linear alternate;
-    animation-delay: 3s;
+    animation: bling 1s cubic-bezier(0.4, 0, 1, 1) alternate;
+    animation-delay: 2.3s;
+}
+.bling1 {
+    animation-delay: 2.6s;
+}
+.bling2 {
+    animation-delay: 2.9s;
+}
+.bling3 {
+    animation-delay: 3.3s;
 }
 @keyframes bling {
     from {
@@ -56,8 +65,5 @@ line.right2 {
     50% {
         opacity: 0.1;
         transform: scale(0.1);
-    }
-    to {
-        opacity: 1;
     }
 }
