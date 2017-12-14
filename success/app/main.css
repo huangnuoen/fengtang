@@ -36,9 +36,13 @@ svg {
     /*margin: 10% auto 11%;*/
     white-space: normal;
 }
+/*.page1 {*/
+    /*background: url(../src/img/wave.gif) no-repeat;*/
+    /*background-size: 100% 100%;*/
+/*}*/
 .page1 .text {
-    transform: translateY(-200%);
-    margin: -21% auto 11%;
+    /*transform: translateY(-200%);*/
+    margin: 0 auto;
 }
 .page2 .text {
     margin: 10% auto 11%;
@@ -64,4 +68,17 @@ div.start {
     color: #fff;
     background-color: #F26F21;
 
+}
+.page2 {
+    transform: translateY(-9%);
+}
+/*启动页*/
+.wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.wave img {
+    width: 100%;
 }

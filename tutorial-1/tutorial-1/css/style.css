@@ -127,3 +127,17 @@
     height: 74%;
     top: 26%;
 }
+/*topBack*/
+.topBack {
+	display: flex;
+	align-items: center;
+}
+.tBack {
+	width: 8%;
+	height: 100%;
+}
+.tBack svg {
+	position: static;
+	width: 46%;
+	height: 100%;
+}

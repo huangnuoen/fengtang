@@ -31,7 +31,8 @@ TweenLite.from($('.add')[1], 1, {
     rotation: -90,
     transformOrigin: 'center',
     delay: 2
-});TweenLite.from($('.add')[2], 1, {
+});
+TweenLite.from($('.add')[2], 1, {
     ease: Elastic.easeOut.config(1, 0.3),
     rotation: -180,
     transformOrigin: 'center',

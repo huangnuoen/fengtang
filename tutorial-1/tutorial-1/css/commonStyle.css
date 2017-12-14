@@ -66,6 +66,8 @@ html, body {
 	font-family: DroidSansFallback;
 }
 .topBack {
+    height: 12%;
+    padding: 0 4.2%;
     font-size: 22px;
     font-family: DroidSansFallback;
 }
